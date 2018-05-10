@@ -1,0 +1,9 @@
+1	Consultar los primeros 100 clientes con el mayor numero de ventas	
+		
+		
+	select  count (cantidad),CLIENTE_IDCLIENTE	
+	from venta	
+	where rownum <10	
+	GROUP BY CLIENTE_IDCLIENTE	
+	order by 1 desc	
+	;	
