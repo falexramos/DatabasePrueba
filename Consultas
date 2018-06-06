@@ -1,4 +1,4 @@
-1	Consultar los primeros 100 clientes con el mayor numero de ventas	
+1	Consultar los primeros 10 clientes con el mayor numero de ventas	
 		
 select * from(select count (cantidad),cliente_idcliente
 from venta
@@ -6,5 +6,19 @@ group by cliente_idcliente
 order by 1 desc)
 where rownum <= 10;
 
+Consultar los primeros 10 clientes con el mayor numero de ventas, en los ultimos 10 dias	
+	
 
+SELECT *
+
+(
+
+select * from(select count (cantidad),cliente_idcliente
+from venta
+group by cliente_idcliente
+order by 1 desc)
+where rownum <= 10
+)
+
+FROM VENTA WHERE FECHA < TO_DATE('200318', 'DDMMYY');
 
