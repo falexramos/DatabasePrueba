@@ -8,17 +8,36 @@ where rownum <= 10;
 
 Consultar los primeros 10 clientes con el mayor numero de ventas, en los ultimos 10 dias	
 	
-
-SELECT *
-
-(
-
-select * from(select count (cantidad),cliente_idcliente
+-/--------------------------------
+select * from (
+select count (cantidad),cliente_idcliente
 from venta
+where fecha between (sysdate-90) and (sysdate-60)
 group by cliente_idcliente
-order by 1 desc)
-where rownum <= 10
+order by 1 desc
 )
+where rownum <=10;
+
+-/--------------------------------
+
+ejemplo de usar to_date
 
 FROM VENTA WHERE FECHA < TO_DATE('200318', 'DDMMYY');
+
+Ejemplo de usar update
+
+-/--------------
+update venta
+set cantidad = 4
+where idventa = 904;
+-/--------------
+-/--------------
+update venta
+set cantidad = 4,
+    tienda_idtienda = 2
+where idventa = 904;
+-/-------------
+
+
+
 
