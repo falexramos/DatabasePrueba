@@ -38,6 +38,11 @@ set cantidad = 4,
 where idventa = 904;
 -/-------------
 
+-/-------------
+Insert
 
+insert into factura values (883,3948048,883);
+
+-/------------
 
 
